@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-orbitron: 'Orbitron', system-ui, sans-serif;
+    --font-rajdhani: 'Rajdhani', system-ui, sans-serif;
+    --font-inter: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Theme Accent Colors (default cyan neon) */
+    --accent-primary: #00f0ff;
+    --accent-secondary: #0ea5e9;
+    --accent-glow: rgba(0, 240, 255, 0.4);
+    --accent-subtle: rgba(0, 240, 255, 0.1);
+  }
+
+  body {
+    font-family: var(--font-inter);
+    background-color: #030712;
+    color: #f1f5f9;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Typography Helpers */
+.font-orbitron {
+  font-family: 'Orbitron', system-ui, sans-serif;
+}
+
+.font-rajdhani {
+  font-family: 'Rajdhani', system-ui, sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Sci-Fi Glows & Shadows */
+.glow-cyan {
+  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.5));
+}
+
+.glow-cyan-lg {
+  filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.8));
+}
+
+.glow-box-cyan {
+  box-shadow: 0 0 20px -5px rgba(0, 240, 255, 0.3), inset 0 0 15px -5px rgba(0, 240, 255, 0.2);
+}
+
+.glow-box-cyan-active {
+  box-shadow: 0 0 30px 2px rgba(0, 240, 255, 0.5), inset 0 0 20px 2px rgba(0, 240, 255, 0.3);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.4);
+}
+
+/* Glassmorphism Sci-Fi Panels */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(8, 18, 38, 0.7) 0%, rgba(3, 7, 18, 0.85) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-panel-subtle {
+  background: linear-gradient(135deg, rgba(14, 28, 54, 0.4) 0%, rgba(6, 12, 28, 0.6) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 240, 255, 0.12);
+}
+
+/* Grid & Cyber Backgrounds */
+.bg-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(circle at 50% 50%, rgba(8, 28, 65, 0.4) 0%, rgba(3, 7, 18, 0.95) 85%);
+}
+
+/* Custom Scrollbar for HUD panels */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.6);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+}
+
+/* Keyframes */
+@keyframes spinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulseCore {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+    filter: drop-shadow(0 0 35px rgba(0, 240, 255, 0.9));
+  }
+}
+
+@keyframes scanLine {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-spin-slow {
+  animation: spinClockwise 24s linear infinite;
+}
+
+.animate-spin-medium {
+  animation: spinClockwise 12s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spinCounterClockwise 20s linear infinite;
+}
+
+.animate-pulse-core {
+  animation: pulseCore 3.5s ease-in-out infinite;
+}
